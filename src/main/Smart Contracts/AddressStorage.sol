@@ -10,7 +10,7 @@ contract AddressStore {
         
     }
     
-    function getAddress(address anAddress) returns (bool) {
+    function getAddress(address anAddress) constant returns (bool) {
         
         for (uint i = 0; i < addressList.length; i++) {
             
