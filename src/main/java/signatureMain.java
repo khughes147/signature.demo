@@ -17,7 +17,7 @@ public class signatureMain {
     public static void main(String[] args) throws SignatureException, IOException, CipherException {
 
 
-        Credentials credentials = WalletUtils.loadCredentials("Ethereum", "C:/Users/Kieran/Documents/EthereumProjectChain/data/keystore/UTC--2018-06-20T16-20-55.193747000Z--83e08a5e77901126a16721590a8e1379fb7b1b6b");
+        Credentials credentials = WalletUtils.loadCredentials("Ethereum", "C:\\Users\\khugh\\Documents\\EthereumProjectChain\\data\\keystore/UTC--2018-06-22T09-50-52.016355100Z--fa5629c569f658a445cd7c6e7714bb715cee6a8b");
         byte[] HexMessage = Hash.sha3("TEST".getBytes());
         System.out.println("Address: " + credentials.getAddress());
         System.out.println("");
@@ -29,5 +29,5 @@ public class signatureMain {
         System.out.println("V: " + Integer.toString(signature.getV()));
 
 
-    }
+    } 
 }
