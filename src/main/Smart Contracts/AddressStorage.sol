@@ -4,7 +4,13 @@ contract AddressStore {
     
     address [] addressList;
     
-    function addAddress(address anAddress){
+    modifier onlyCreator() {
+        require(msg.sender == 0xca35b7d915458ef540ade6068dfe2f44e8fa733c); // If it is incorrect here, it reverts.
+        _;                              // Otherwise, it continues.
+    }
+
+
+    function addAddress(address anAddress) onlyCreator {
         
         addressList.push(anAddress);
         

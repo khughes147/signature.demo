@@ -11,7 +11,12 @@ contract ApprovedData {
         
         Record [] recordArray;
         
-        function addRecord(string aFingerPrint, string aProducer){
+        modifier onlyCreator() {
+        require(msg.sender == 0xbde95422681e4c3984635af2f2f35f8c44a4ddc9); // If it is incorrect here, it reverts.
+        _;                              // Otherwise, it continues.
+    }
+
+        function addRecord(string aFingerPrint, string aProducer) onlyCreator {
 
 
             recordArray.push(Record(aFingerPrint, aProducer));

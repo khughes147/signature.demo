@@ -3,14 +3,37 @@ pragma solidity ^0.4.0;
 contract Verifier {
 
 
+    address private owner;
+    address private verifiedDataAddress;
+
+
+    function Verifier() public {
+
+    owner = msg.sender;
+
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner); // If it is incorrect here, it reverts.
+        _;                              // Otherwise, it continues.
+    }
+
+
+
     function verify(string fingerPrint, string producer, bytes32 _message, uint8 _v, bytes32 _r, bytes32 _s){
 
         if(decryptSig(_message, _v, _r, _s)){
 
-            verifiedData vData = verifiedData(0x28fb1aca4b64a6edff4d0287b81f0b2a2e75257b);
+            verifiedData vData = verifiedData(verifiedDataAddress);
             vData.addRecord(fingerPrint, producer);
 
         }
+
+    }
+
+    function setVerifiedDataAddress(address anAddress) onlyOwner {
+
+        verifiedDataAddress = anAddress;
 
     }
 
@@ -26,7 +49,7 @@ contract Verifier {
 
 
     function check(address checkAddress) constant returns (bool) {
-        ApprovedAddresses a = ApprovedAddresses(0x610033b6dd5a08004e46f2097ca09b693d744118);
+        ApprovedAddresses a = ApprovedAddresses(0x0dcd2f752394c41875e259e00bb44fd505297caf );
         return a.getAddress(checkAddress);
     }
 }
