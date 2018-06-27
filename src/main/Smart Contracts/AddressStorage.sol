@@ -1,11 +1,11 @@
 pragma solidity ^0.4.0;
 
-contract AddressStore {
-    
+contract AddressStorage {
+
     address [] addressList;
-    
+
     modifier onlyCreator() {
-        require(msg.sender == 0xca35b7d915458ef540ade6068dfe2f44e8fa733c); // If it is incorrect here, it reverts.
+        require(msg.sender == 0x83e08a5e77901126a16721590a8e1379fb7b1b6b); // If it is incorrect here, it reverts.
         _;                              // Otherwise, it continues.
     }
 

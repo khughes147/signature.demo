@@ -1,13 +1,13 @@
 pragma solidity ^0.4.0;
 
-contract Verifier {
+contract VerificationSmartContract {
 
 
     address private owner;
     address private verifiedDataAddress;
 
 
-    function Verifier() public {
+    function VerificationSmartContract() public {
 
     owner = msg.sender;
 
@@ -24,7 +24,7 @@ contract Verifier {
 
         if(decryptSig(_message, _v, _r, _s)){
 
-            verifiedData vData = verifiedData(verifiedDataAddress);
+            VerifiedData vData = VerifiedData(verifiedDataAddress);
             vData.addRecord(fingerPrint, producer);
 
         }
@@ -49,17 +49,17 @@ contract Verifier {
 
 
     function check(address checkAddress) constant returns (bool) {
-        ApprovedAddresses a = ApprovedAddresses(0x0dcd2f752394c41875e259e00bb44fd505297caf );
+        AddressStorage a = AddressStorage(0xb04691fa0116d6d3321e74b59648fabb91be350d);
         return a.getAddress(checkAddress);
     }
 }
 
-contract ApprovedAddresses{
+contract AddressStorage{
 
     function getAddress(address anAddress) constant returns (bool);
 }
 
-contract verifiedData{
+contract VerifiedData{
 
     function addRecord(string aFingerPrint, string aProducer);
 

@@ -1,6 +1,6 @@
 pragma solidity ^0.4.0;
 
-contract ApprovedData {
+contract VerifiedData {
     
         struct Record{
         
@@ -12,7 +12,7 @@ contract ApprovedData {
         Record [] recordArray;
         
         modifier onlyCreator() {
-        require(msg.sender == 0xbde95422681e4c3984635af2f2f35f8c44a4ddc9); // If it is incorrect here, it reverts.
+        require(msg.sender == 0x1c649a710a74af7a5f96b475ea5618a5b0b8f505); // If it is incorrect here, it reverts.
         _;                              // Otherwise, it continues.
     }
 
