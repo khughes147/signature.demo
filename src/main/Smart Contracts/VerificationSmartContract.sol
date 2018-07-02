@@ -49,7 +49,7 @@ contract VerificationSmartContract {
 
 
     function check(address checkAddress) constant returns (bool) {
-        AddressStorage a = AddressStorage(0xb04691fa0116d6d3321e74b59648fabb91be350d);
+        AddressStorage a = AddressStorage(0x06a5a9d42f8409ad279c1dba4763476147d99443);
         return a.getAddress(checkAddress);
     }
 }
